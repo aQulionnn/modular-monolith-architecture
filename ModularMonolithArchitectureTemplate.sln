@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{A29CC0D9-F024-42D8-940B-6B30535F670C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{9DEBF288-B941-4F82-BACD-2FFC9809B15F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Violins", "Modules.Violins\Modules.Violins.csproj", "{BD1E7AB4-5CEE-4612-A23F-00837293E163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Pianos", "Modules.Pianos\Modules.Pianos.csproj", "{82DD2383-109A-4902-9815-10F4042AB40E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A29CC0D9-F024-42D8-940B-6B30535F670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29CC0D9-F024-42D8-940B-6B30535F670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29CC0D9-F024-42D8-940B-6B30535F670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29CC0D9-F024-42D8-940B-6B30535F670C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD1E7AB4-5CEE-4612-A23F-00837293E163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD1E7AB4-5CEE-4612-A23F-00837293E163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD1E7AB4-5CEE-4612-A23F-00837293E163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD1E7AB4-5CEE-4612-A23F-00837293E163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82DD2383-109A-4902-9815-10F4042AB40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82DD2383-109A-4902-9815-10F4042AB40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82DD2383-109A-4902-9815-10F4042AB40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82DD2383-109A-4902-9815-10F4042AB40E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD1E7AB4-5CEE-4612-A23F-00837293E163} = {9DEBF288-B941-4F82-BACD-2FFC9809B15F}
+		{82DD2383-109A-4902-9815-10F4042AB40E} = {9DEBF288-B941-4F82-BACD-2FFC9809B15F}
+	EndGlobalSection
+EndGlobal
