@@ -1,23 +1,29 @@
-using Microsoft.EntityFrameworkCore;
+using Dapper;
 using Modules.Violins.Data;
 using Modules.Violins.Entities;
 using Modules.Violins.Interfaces;
 
 namespace Modules.Violins.Repositories;
 
-public class ViolinRepository(ViolinsDbContext context) : IViolinRepository
+public class ViolinRepository(IDbConnectionFactory connectionFactory) : IViolinRepository
 {
-    private readonly ViolinsDbContext _context = context;
-
+    private readonly IDbConnectionFactory _connectionFactory = connectionFactory;
+    
     public async Task<Violin> CreateAsync(Violin violin)
     {
-        await _context.Violins.AddAsync(violin);
-        await _context.SaveChangesAsync();
+        using var dbConnection = await _connectionFactory.CreateConnectionAsync();
+        await dbConnection.ExecuteAsync(
+            """
+            INSERT INTO violins (id, model, brand, size, stringmaterial, bodywood, bowmaterial)
+            VALUES (@Id, @Model, @Brand, @Size, @StringMaterial, @BodyWood, @BowMaterial)
+            """, violin);
+        
         return violin;
     }
 
     public async Task<Violin?> GetByIdAsync(Guid id)
     {
-        return await _context.Violins.FirstOrDefaultAsync(x => x.Id == id);
+        using var dbConnection = await _connectionFactory.CreateConnectionAsync();
+        return await dbConnection.QueryFirstOrDefaultAsync<Violin>("SELECT * FROM violins WHERE id = @Id", new { Id = id });
     }
 }

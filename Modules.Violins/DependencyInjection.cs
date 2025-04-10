@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Modules.Violins.Data;
 using Modules.Violins.Interfaces;
@@ -8,9 +9,9 @@ namespace Modules.Violins;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddViolinsModule(this IServiceCollection services)
+    public static IServiceCollection AddViolinsModule(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ViolinsDbContext>(options => options.UseInMemoryDatabase("Database"));
+        services.AddSingleton<IDbConnectionFactory>(_ => new NpgsqlDbConnectionFactory(configuration.GetConnectionString("Database")!));
         services.AddScoped<IViolinRepository, ViolinRepository>();
         return services;
     }

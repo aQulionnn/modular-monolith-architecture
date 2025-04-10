@@ -4,8 +4,8 @@ using Modules.Violins;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddViolinsModule()
-    .AddPianosModule();
+    .AddViolinsModule(builder.Configuration)
+    .AddPianosModule(builder.Configuration);
 
 builder.Services.AddControllers();
 
